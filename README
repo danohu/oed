@@ -1,0 +1,9 @@
+Interface to the OED
+
+Requirements:
+ OED scans as djvu -- see links at http://ohuiginn.net/mt/2009/02/the_oxford_english_dictionary.html
+ node.js (painful to install on debian so far; try http://www.sekati.com/etc/install-nodejs-on-debian-squeeze)
+
+[early stages, and 
+
+
