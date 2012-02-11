@@ -1,0 +1,43 @@
+/* Style */
+
+
+
+.header {
+	height: 68px;
+	width: 100%;
+	background: #AAAAAA;
+	border-bottom: 1px solid grey;
+}
+
+
+.headerContainer {
+	width: 1000px;
+	height: 68px;
+	margin: 0 auto;
+}
+
+.noSubmits {
+	clear: both;
+    float: left;
+    margin-top: 38px;
+    width: 200px;
+}
+
+.search {
+	margin-left: 368px;
+}
+
+
+.search input {
+    height: 23px;
+    position: relative;
+    top: 15px;
+    width: 300px;
+}
+
+.container {
+	height: 500px;
+	width: 100%;
+	background: #C9C9C9;
+	border-top: 1px solid white
+}
