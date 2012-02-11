@@ -38,3 +38,10 @@ A) just guess based on the letters covered in each volume, and the position of t
 B) Half-hearted OCR. We can't easily do full OCR on the dictionary -- the text is in columns, and includes a lot of characters in odd alphabets. But we can do basic OCR, giving us an (inaccurate, incomplete) list of the characters on each page. Then we find the most common prefix of those words. i.e. if a page contains 50 words starting JER-, that probably means we are on the JER- page of the dictionary.
 
 STAGE THREE: more advanced things involving OCR. Not likely to happen in a single day.
+
+---
+
+Further ideas:
+ - facebook integration: share a word. [select text and extract]?
+ - link to a word -- link to a particular place in the page
+ - skimlinks-style linking -- read through a page, insert links to [some] words in the OED
