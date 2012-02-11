@@ -3,6 +3,13 @@ Interface to the OED
 Requirements:
  OED scans as djvu -- see links at http://ohuiginn.net/mt/2009/02/the_oxford_english_dictionary.html
  node.js (painful to install on debian so far; try http://www.sekati.com/etc/install-nodejs-on-debian-squeeze)
+ expressjs (node framework; install using npm, the node package manager)
+
+image-conversion tools:
+ djview4 (not strictly needed?)
+ djvulibre-bin (provides ddjvu)
+ imagemagick (provides convert tool for image-conversion)
+ 
 
 [early stages, and 
 
