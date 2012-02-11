@@ -46,3 +46,15 @@ Further ideas:
  - link to a word -- link to a particular place in the page
  - skimlinks-style linking -- read through a page, insert links to [some] words in the OED
  - 'Dead Word of the Day'. extract interesting words (as images) from a particular page). blog them
+
+# Image server
+
+To return images as png:
+$ cd node
+$ node oed.js
+
+images will be available through /page/png?vol=6a&page=180
+
+currently running on oed.ohuiginn.net:
+http://oed.ohuiginn.net/page/png?vol=6a&page=180
+
