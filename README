@@ -12,7 +12,7 @@ Further reading:
  http://en.wikipedia.org/wiki/Oxford_English_Dictionary
  http://ohuiginn.net/mt/2009/02/the_oxford_english_dictionary.html [links to scans of most volumes of the dictionary.
  http://ohuiginn.net/oed -- VERY rough interface to the scans [requires a djvu browser plugin]
-
+ http://lists.canonical.org/pipermail/kragen-tol/2005-October/000794.html -- proposal from Kragen Sitaker, who did much of the initial work to get the scans online
 
 #Refresh Oxford
 
@@ -25,12 +25,16 @@ A) Using djvu. This format lets you call up an individual page of a book without
 
 The problem is that you need a browser plugin to view djvu files. This doesn't seem very helpful for the casual user.
 
-B) Using png. Do on-the-fly conversion of pages from djvu to png, as they are requested
+B) Using png. Do on-the-fly conversion of pages from djvu to png, as they are requested.
 
 C) both (a) and (b). djvu interface, with png as a fallback
 
 STAGE TWO: finding (approximately) the correct page for a word
 
-You enter a word, and the service flips to approximately the right page of the dictionary. 
+You enter a word, and the service flips to approximately the right page of the dictionary. Again we have 2 alternatives: one easy, the other easy harder but better:
 
-STAGE THREE: more advanced things involving OCR. Not likely to happen in a single day
+A) just guess based on the letters covered in each volume, and the position of the word searched for in an alphabetical list of english words. So if 'refresh' is, say, 30% of the way through the English words starting R, we look for it on page 300 of the 1000-page R volume
+
+B) Half-hearted OCR. We can't easily do full OCR on the dictionary -- the text is in columns, and includes a lot of characters in odd alphabets. But we can do basic OCR, giving us an (inaccurate, incomplete) list of the characters on each page. Then we find the most common prefix of those words. i.e. if a page contains 50 words starting JER-, that probably means we are on the JER- page of the dictionary.
+
+STAGE THREE: more advanced things involving OCR. Not likely to happen in a single day.
