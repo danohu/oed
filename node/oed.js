@@ -1,6 +1,7 @@
 var app = require('express').createServer();
 var exec = require('child_process').exec;
 var spawn = require('child_process').spawn;
+var jsentries = require('./jsentries').jsentries;
 
 var png_for_page = function(req, res){
 
@@ -70,5 +71,6 @@ app.get('/page/png', png_for_page);
 app.get('/page/djvu', djvu_for_page);
 app.get('/page/text', text_for_page);
 app.get('/page/xml', xml_for_page);
+app.get('/jquery', jsentries);
 app.listen(8082);
 
