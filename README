@@ -12,3 +12,25 @@ Further reading:
  http://en.wikipedia.org/wiki/Oxford_English_Dictionary
  http://ohuiginn.net/mt/2009/02/the_oxford_english_dictionary.html [links to scans of most volumes of the dictionary.
  http://ohuiginn.net/oed -- VERY rough interface to the scans [requires a djvu browser plugin]
+
+
+#Refresh Oxford
+
+The good thing about this project, is there's plenty we can achieve in a day., Here are my rough plans in stages, from what we could certainly achieve in one day, to more advanced ideas which we definitely won't
+
+STAGE ONE: usable interface to the scanned pages.
+A website where you can choose volume and page of the OED, and be shown the scan of that page. Some navigation to flip back and forward through pages. There are 2 options for this:
+
+A) Using djvu. This format lets you call up an individual page of a book without downloading more than that. We have (most volumes of) the oed in djvu format, and I've put up a basic interface at http://ohuiginn.net/oed
+
+The problem is that you need a browser plugin to view djvu files. This doesn't seem very helpful for the casual user.
+
+B) Using png. Do on-the-fly conversion of pages from djvu to png, as they are requested
+
+C) both (a) and (b). djvu interface, with png as a fallback
+
+STAGE TWO: finding (approximately) the correct page for a word
+
+You enter a word, and the service flips to approximately the right page of the dictionary. 
+
+STAGE THREE: more advanced things involving OCR. Not likely to happen in a single day
