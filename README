@@ -59,6 +59,16 @@ currently running on oed.ohuiginn.net:
 http://oed.ohuiginn.net/page/png?vol=6a&page=180
 
 
+#PDFMINER
+
+The most (only?) reliable way of extracting headwords from a pdf page of the oed seems to be using pdfminer
+A command-line version like the following seems to work:
+ python pdf2txt.py -p 250 -t html /var/www/oed/oed04arch.pdf 
+
+This requires the latest version of pdfminer from https://github.com/euske/pdfminer/blob/master/docs/programming.html
+There's a current bug in the pdfminer setup -- you _need_ to build the CJK language bit ("make cmap"), or it won't work at all
+
+
 #CREDITS
 
 Dan O'Huiginn [http://ohuiginn.net]
