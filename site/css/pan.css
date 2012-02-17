@@ -1,0 +1,5 @@
+body {margin:0; padding:0; background:#eee;}
+#outer_container, #imagePan{height:400px; width:600px;}
+#outer_container{margin:40px auto; padding:4px; border:8px solid #dadada;}
+#imagePan{position:relative; overflow:hidden; cursor:crosshair;}
+#imagePan .container{position:relative; left:0;}
