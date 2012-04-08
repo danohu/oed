@@ -18,18 +18,36 @@
 <div id="header" class="header">
 	<div class="headerContainer">
 	<div id="noSubmits" class="noSubmits"></div>
-		<div class="search"><input type="search" name="searchword" /></div>
+	<div class="search">
+
+	</div>
 	</div>
 </div>
 
+
 <div id="container" class="container">
 
+		<form onSubmit="return false;">
+	<label for="searchword">Word</label>
+	<input type="search" name="searchword" id="searchword" / >
+	<br/>
+	<label for="volume">Volume</label>
+	<input type="text" name="volume" id="volume"/ >
+	<br/>
+	<label for="page">Page</label>
+	<input type="text" name="page" id="page" / >
+	<br/>
+	<input type="submit" name="searchbutton" id="searchbutton"/>
 
+</form>
+	<input type="submit" name="next" value="next page" id="nextbutton"/>
+	<input type="submit" name="previous" value="previous page" id="previousbutton"/>
+	
 	<div id="outer_container">
 		<div id="imagePan">
 			<div class="container">
 				<div>
-	<img src="http://static.ohuiginn.net/page_10quality.jpeg" class="panning"/>
+	<img id="pageimage" src="http://static.ohuiginn.net/page_10quality.jpeg" class="panning"/>
 							    </div>
 								</div>
 							</div>
@@ -41,6 +59,7 @@
 </div>
 </div>
 <script src="js/pan.js"></script>
+
 
 </body>
 </html>
