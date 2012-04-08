@@ -1,4 +1,4 @@
-Putting the old OED online
+#Putting the old OED online
 
 The Oxford English Dictionary is the most detailed dictionary of English, and an incredible resource.
 
@@ -9,10 +9,11 @@ The hard work is already done: scans of almost all volumes exist on the Internet
 So let's build a better interface to them.
 
 Further reading:
- http://en.wikipedia.org/wiki/Oxford_English_Dictionary
- http://ohuiginn.net/mt/2009/02/the_oxford_english_dictionary.html [links to scans of most volumes of the dictionary.
- http://ohuiginn.net/oed -- VERY rough interface to the scans [requires a djvu browser plugin]
- http://lists.canonical.org/pipermail/kragen-tol/2005-October/000794.html -- proposal from Kragen Sitaker, who did much of the initial work to get the scans online
+
+- http://en.wikipedia.org/wiki/Oxford_English_Dictionary
+- http://ohuiginn.net/mt/2009/02/the_oxford_english_dictionary.html [links to- scans of most volumes of the dictionary.
+- http://ohuiginn.net/oed -- VERY rough interface to the scans [requires a djvu browser plugin]
+- http://lists.canonical.org/pipermail/kragen-tol/2005-October/000794.html -- proposal from Kragen Sitaker, who did much of the initial work to get the scans online
 
 #Refresh Oxford
 
@@ -42,6 +43,7 @@ STAGE THREE: more advanced things involving OCR. Not likely to happen in a singl
 ---
 
 Further ideas:
+
  - facebook integration: share a word. [select text and extract]?
  - link to a word -- link to a particular place in the page
  - skimlinks-style linking -- read through a page, insert links to [some] words in the OED
@@ -71,7 +73,7 @@ There's a current bug in the pdfminer setup -- you _need_ to build the CJK langu
 
 #CREDITS
 
-Dan O'Huiginn [http://ohuiginn.net]
-Chuck Dixon [https://github.com/chvckd]
-Warren Hobden
+*  Dan O'Huiginn [http://ohuiginn.net]
+*  Chuck Dixon [https://github.com/chvckd]
+*  Warren Hobden
 
