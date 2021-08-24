@@ -5,7 +5,7 @@ creds = service_account.Credentials.from_service_account_file(creds_path)
 from google.protobuf.json_format import MessageToDict
 from google.cloud import vision
 
-
+foo = 'bar'
 class OCRPage:
 
     def __init__(self, source_url:str, *args, **kwargs):
@@ -35,16 +35,15 @@ class OCRPage:
     def firstword_text(self, para):
         return ''.join(x.text for x in para.words[0].symbols)
 
-
-    def iterate_paras(self, doc_outer):
-        doc = doc_outer.full_text_annotation
+    def iterate_paras(self):
+        doc = self.page_as_protobuf.full_text_annotation
         for page in doc.pages:
             for block in page.blocks:
                 for paragraph in block.paragraphs:
                     yield paragraph
 
 
-    def get_headings(self, doc):
+    def get_headings(self):
         """
         """
         tolerance = 5 # avoid issues where the headers are a few pixels off
@@ -53,7 +52,7 @@ class OCRPage:
         top_leftmost_coords = None
         top_rightmost_coords = None
 
-        for paragraph in self.iterate_paras(doc):
+        for paragraph in self.iterate_paras():
             # initialize
             if top_leftmost_coords is None:
                 top_leftmost_coords = paragraph.bounding_box.vertices[0]
@@ -74,16 +73,16 @@ class OCRPage:
 
         return (top_leftmost, top_rightmost)
 
-    def para_start_end(self, doc):
-        for para in self.iterate_paras(doc):
+    def para_start_end(self):
+        for para in self.iterate_paras():
             first = ''.join(x.text for x in para.words[0].symbols)
             last = ''.join(x.text for x in para.words[-1].symbols)
             print(f'{self.wordtext(para.words[0])} - {self.wordtext(para.words[-1])}')
 
 
 #%%
-source_uri = 'https://ohuiginn.net/tmp/singlepage-1.png'
-ocr = OCRPage(source_uri)
-pb = ocr.run_ocr()
+# source_uri = 'https://ohuiginn.net/tmp/singlepage-1.png'
+# ocr = OCRPage(source_uri)
+# pb = ocr.run_ocr()
 
 
