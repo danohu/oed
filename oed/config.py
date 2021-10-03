@@ -21,9 +21,9 @@ prod_config.update({
 })
 
 envs = {
-'test': test_config,
-'dev': dev_config,
-'prod': prod_config}
+    'test': test_config,
+    'dev': dev_config,
+    'prod': prod_config}
 
 
 def config():
@@ -33,12 +33,16 @@ def config():
     '''
     return CURRENT_ENV
 
-def set_env(env:str):
+
+def set_env(env: str):
     global CURRENT_ENV
     assert env in envs
     CURRENT_ENV = envs[env]
 
+
 CURRENT_ENV = envs['test']
+
+
 def detect_env():
     if "PYTEST_CURRENT_TEST" in os.environ:
         set_env('test')
@@ -49,4 +53,13 @@ def detect_env():
     else:
         set_env('prod')
 
+
 detect_env()
+
+
+# XXX the below should be better integrated into the config setup
+from google.oauth2 import service_account
+
+creds_path = '/home/src/oed/creds.json'
+
+creds = service_account.Credentials.from_service_account_file(creds_path)

@@ -1,21 +1,23 @@
-from google.oauth2 import service_account
-creds_path = '/home/src/oed/creds.json'
-
-creds = service_account.Credentials.from_service_account_file(creds_path)
-from google.protobuf.json_format import MessageToDict
+from google.cloud.vision_v1 import AnnotateImageResponse
 from google.cloud import vision
-
+from oed.config import creds
 foo = 'bar'
-class OCRPage:
 
-    def __init__(self, source_url:str, *args, **kwargs):
+
+class OCRPage:
+    has_run = False
+    page_as_protobuf: AnnotateImageResponse = 'abc' # set up mypy?
+
+    def __init__(self, source_url: str, *args, **kwargs):
         self.client = vision.ImageAnnotatorClient(credentials=creds)
-        self.source_url=source_url
+        self.source_url = source_url
         pass
 
-    def run_ocr(self):
-        image_src = vision.ImageSource(image_uri = self.source_url)
-        img = vision.Image(source=image_src)
+    def run_ocr(self, force=False):
+        if self.has_run and not force:
+            return self.page_as_protobuf
+        image_src = vision.ImageSource(image_uri=self.source_url)
+        img = vision.Image(sourcea=image_src)
         feature = vision.Feature(
             type_=vision.Feature.Type.DOCUMENT_TEXT_DETECTION)
         self.page_as_protobuf = self.client.annotate_image({
@@ -24,12 +26,11 @@ class OCRPage:
             'features': [feature]
         })
         return self.page_as_protobuf
-        pass
 
     def wordtext(self, word):
         return ''.join(x.text for x in word.symbols)
 
-    def paratext(self,para):
+    def paratext(self, para):
         return ' '.join(self.wordtext(x) for x in para.words)
 
     def firstword_text(self, para):
@@ -42,11 +43,10 @@ class OCRPage:
                 for paragraph in block.paragraphs:
                     yield paragraph
 
-
     def get_headings(self):
         """
         """
-        tolerance = 5 # avoid issues where the headers are a few pixels off
+        tolerance = 5  # avoid issues where the headers are a few pixels off
         top_leftmost = None
         top_rightmost = None
         top_leftmost_coords = None
@@ -65,7 +65,7 @@ class OCRPage:
                 top_leftmost_coords = topleft
                 top_leftmost = paragraph
 
-            topright= paragraph.bounding_box.vertices[1]
+            topright = paragraph.bounding_box.vertices[1]
             if (topright.x + tolerance >= top_rightmost_coords.x
                     and topright.y - tolerance <= top_rightmost_coords.y):
                 top_rightmost_coords = topright
@@ -79,10 +79,21 @@ class OCRPage:
             last = ''.join(x.text for x in para.words[-1].symbols)
             print(f'{self.wordtext(para.words[0])} - {self.wordtext(para.words[-1])}')
 
+    def headwords(self):
+        '''
+        Our best guess at the headwords at the top of the page
+        '''
+        left, right = self.get_headings()
+        return self.firstword_text(left), self.firstword_text(right)
 
-#%%
+
+# %%
 # source_uri = 'https://ohuiginn.net/tmp/singlepage-1.png'
 # ocr = OCRPage(source_uri)
 # pb = ocr.run_ocr()
+
+def fubar():
+    raise
+    breakpoint
 
 

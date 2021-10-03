@@ -19,6 +19,13 @@ class Page(Base):
     last_word = Column(Unicode)
     source_url = Column(Unicode)
 
+    @classmethod
+    def from_ocrpage(cls, page):
+        firstword, lastword = page.headwords()
+        instance = cls(
+        )
+        pass
+
 #%%
 Base.metadata.create_all(checkfirst=True)
 
